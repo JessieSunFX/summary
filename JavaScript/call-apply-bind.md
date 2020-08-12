@@ -18,7 +18,7 @@ Funtion.prototype.myCall = function(context) {
     }
     // context = context || window 和上面的代码一样
     context.fn = this
-    const args = [...argument].slice(1)
+    const args = [...arguments].slice(1)
     const result = context.fn(args)
     delete context.fn
     return result
@@ -50,3 +50,26 @@ Function.prototype.myApply = function(context) {
 ```
 
 ## 因为bind转换后的函数可以作为构造函数使用，此时this应该指向构造出的实例，而不是bind绑定的第一个参数
+```
+Function.prototype.myBind = function(context) {
+    if(typeof this !== 'function'){
+        throw new TypeError('Error')
+    }
+    // 返回一个绑定this的函数，这里我们需要保存this
+    const _this = this
+    const args = [...arguments].slice(1)
+    // 返回一个函数
+    return function F() {
+        // 因为返回一个函数，我们可以new F()需要判断能当做构造函数吗
+        if(this instanceof F){
+            return new _this(...args, ...arguments)
+        }else {
+            return _this.apply(context, args.concat(...arguments))
+        }
+    }
+}
+```
+### bind返回一个函数，对于函数来说有两种方式调用，一种是直接调用，一种是通过new的方式
+### 对于直接调用来说，这里选择了apply的方式，但是对于参数需要注意以下情况：
+### 因为bind可以实现类似这样的代码f.bind(obj,1)(2),所以我们需要将两边的参数拼接起来，于是就有了这样的实现args.concat(...arguments)
+### new的方式，我们先判断this，对于new的情况，不会被任何方式改变this，所以对于这种情况我们需要忽略传入的this
