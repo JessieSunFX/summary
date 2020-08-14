@@ -170,3 +170,10 @@
     align-self: auto | flex-start | flex-end | center | baseline | stretch;
 }
 ```
+
+## 谈一下flex布局
+### flex是一种弹性布局，包含flex-container和flex-item
+### 常用属性包括 flex-direction、flex-wrap、justify-content、align-items
+### 水平居中justify-content:center
+### 水平两头居中 justify-content:space-between
+### 垂直居中 align-items:center
