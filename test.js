@@ -1,4 +1,4 @@
-Funtion.prototype.myCall = function (context) {
+Function.prototype.myCall = function (context) {
     if (typeof this !== 'function') {
         throw new TypeError('Error')
     }
