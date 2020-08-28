@@ -40,3 +40,49 @@ Function.prototype.myBind = function (context) {
         }
     }
 }
+
+
+function debounce(fn, wait, immediate) {
+    let timeout
+
+    return function() {
+        let context = this
+        let args = arguments
+        if(timeout) clearTimeout(timeout)
+
+        if(immediate) {
+            let callnow = !timeout
+            timeout = setTimeout(() => {
+                timeout = null
+            }, wait)
+            if(callnow) fn.apply(context, args)
+        } else {
+            timeout = setTimeout(() => {
+                fn.apply(context, args)
+            }, wait)
+        }
+    }
+}
+
+function debounce(fn, wait, immediate) {
+    let timeout 
+
+    return function() {
+        const context = this
+        const args = arguments
+        if(timeout) clearTimeout(timeout)
+
+        if(immediate) {
+            const callnow = !timeout
+            timeout = setTimeout(() => {
+                timeout = null
+            }, wait)
+            if(callnow) fn.apply(context, args)
+        } else {
+            timeout = setTimeout(() => {
+                fn.apply(context, args)
+            }, wait)
+        }
+
+    }
+}

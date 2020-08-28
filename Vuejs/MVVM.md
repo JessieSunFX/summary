@@ -21,6 +21,8 @@
 - 不需要关注数据状态的同步问题，复杂的数据状态维护完全由MVVM来统一管理。
 - 数据驱动的开发方法
 
+- vm: object.defineProperty + 发布订阅模式
+
 ## mvvm和mvc的区别
 - 都是一种设计思想
 - mvc中的controller演变成了mvvm中的viewModel
