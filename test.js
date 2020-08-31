@@ -86,3 +86,17 @@ function debounce(fn, wait, immediate) {
 
     }
 }
+
+function throttle(func, wait) {
+    let timer = null
+    return function () {
+        let context = this
+        let args = arguments
+        if(!timer) {
+            timer = setTimeout(function() {
+                timer = null
+                func.apply(context, args)
+            }, wait)
+        }
+    }
+}
