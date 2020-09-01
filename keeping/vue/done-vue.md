@@ -1,0 +1,24 @@
+- v-if 和 v-show 区别
+- vue 中 for 循环渲染时的 key 是用来做什么的
+- vue 的生命周期函数有哪些? 数据请求在哪个生命周期函数中?
+- 前端路由原理
+- vue 中 computed 和 watch 的区别
+- vue-cli 中如何使用 json 数据模拟
+- 什么是 diff 算法
+- vue 的 created,mounted 应用场景
+- vue 中的 data 为什么是函数的形式
+- vue 中实现双向数据绑定的原理
+- Proxy 相比于 defineProperty 的优势
+- Vue.use, install 分别有哪些作用?
+- vue 插件的 install 方法可以做什么
+- vue 中父子组件传值,兄弟组件如何传值
+- vue 中的 keep-alive作用? 原理?
+- mvvm 是什么
+- 说说 Vue 中`$nextTick` 的实现原理
+- SPA 的优缺点
+- vue 中的插槽有什么作用
+- vue-router 的导航钩子函数有哪些
+- vuex 是什么? 怎么用? 在哪些场景下用?
+- 为什么mutation方法一定要是同步的? 为了保证状态可追踪
+- 介绍vue中引入组件的几种方式
+- vue中使用插件的步骤? 先import引入, 在挂载Vue.use

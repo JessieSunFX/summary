@@ -1,0 +1,16 @@
+- setState是异步的还是同步的，内部采用的是什么机制
+- react事件了解吗？ (合成事件)  和普通事件有什么区别，实现原理
+- react函数式写法和类写法的优缺点
+- react 类组件有哪些生命周期函数? 分别的作用是什么?
+- 常用react hook
+- 什么时候使用useRef，可以做到什么事情
+- 为什么请求方法放在 useEffect 里，放在外面和放里面有什么区别？在 useEffect 里想使用 async/await 怎么用
+- 谈了谈 useLayoutEffect 和 useEffect 具体执行时机
+- hooks实现shouldComponentUpdate
+- react Fiber 了解吗？ (只答了时间片轮转算法，调度策略)
+- react diff采用的什么原则， (重点 last_index)
+- react开发的几种方式
+- vue 和 react 有什么区别，更喜欢用哪个，为什么
+- react 如何进行性能优化
+- react 高阶组件有哪几种方式，如何写一个高阶组件
+- setState发生了什么
