@@ -8,8 +8,8 @@
 - \<html>根元素
 - 浮动元素：float:left 或 right
 - overflow的值为auto、scroll 或 hidden
-- display的值为 table-cell、table-caption、inline-block或 flex
-- 绝对定位/固定定位position:absolute 或 fixed
+- display的值为 table-cell、table-caption 或 inline-block
+- 绝对定位/固定定位:position:absolute 或 fixed
 #### 只要元素符合上面任意一个条件，就无需使用clear:both属性去清除浮动的影响
 
 ### BFC用途
