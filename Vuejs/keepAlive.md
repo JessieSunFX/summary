@@ -11,6 +11,7 @@
 - \<keep-alive> 不会在函数式组件中正常工作，因为它们没有缓存实例。
 
 ### keep-alive部分页面不刷新如何实现
+- https://blog.csdn.net/weixin_44369568/article/details/90727668
 1. exclude
 2. 路由设置时 meta keep-alive:false
 3. activated deactivated声明周期

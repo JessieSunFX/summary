@@ -1,25 +1,15 @@
 ## 谈一下对MVVM原理的理解
 
 ![avatar](./img/mvvm.jpg)
-### 传统的MVC指的是，用户操作会请求服务端路由，路由会调用对应的控制器来处理，控制器会获取数据。将结果返回给前端，页面重新渲染。
-
-### MVVM：传统的前端会将数据手动渲染到页面上，MVVM模式不需要用户手动操作dom元素，将数据绑定到viewModel层上，会自动将数据渲染到页面中，视图变化会通知viewModel层更新数据。
-
-### ViewModel 就是我们MVVM模式中的桥梁。
 
 - https://zhuanlan.zhihu.com/p/53703176
 
 ## 什么是MVVM?
-- MVVM是 Model-View-ViewModel 的缩写。MVVM是一种设计思想。 
-- Model代表数据模型，也可以在Model中定义数据修改和操作的业务逻辑；
-- View代表UI组件，它负责将数据模型转化成UI展现出来；
-- ViewModel 是一个同步View 和 Model的对象
+- MVVM 是 Model-View-ViewModel 的缩写，是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 视图，它负责将数据模型转化成 视图 展现出来，ViewModel 是一个同步 View 和 Model 的对象。
 
-- 在MVVM架构下，View和Model之间并没有直接的联系，而是通过ViewModel进行交互。
-- ViewModel通过双向数据绑定把View层连接了起来，而View和Model之间的同步工作完全是自动的，无需人为干涉。
-- 因此开发者只需关注业务逻辑，不需要手动操作DOM；
-- 不需要关注数据状态的同步问题，复杂的数据状态维护完全由MVVM来统一管理。
-- 数据驱动的开发方法
+- 在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的， 因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。
+
+- ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作 DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。
 
 - vm: object.defineProperty + 发布订阅模式
 
