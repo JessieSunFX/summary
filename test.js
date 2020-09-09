@@ -1,27 +1,38 @@
-function cache(key, value, seconds) {
-    const timestamp = Date.parse(new Date())/1000
-    if(key && value === null) {
-        localStorage.removeItem(key)
-    } else if(key && value) {
-        let expire
-        if(!seconds) {
-            expire = timestamp + (7*24*3600)
-        } else {
-            expire = timestamp + seconds
+class Event {
+    constructor () {}
+    handlers = {}
+
+    addEventListener(type, handler) {
+        if(!(type in this.handlers)) {
+            this.handlers[type] = []
         }
-        value = `${value}|${expire}`
-        localStorage.setItem(key, value)
-    } else if(key) {
-        const val = localStorage.getItem(key)
-        if(!val) return false
-        const tmp = val.split("|")
-        if(!tmp[1] || timestamp >= tmp[1]) {
-            localStorage.removeItem(key)
-            return false
-        } else {
-            return tmp[0]
+        this.handlers[type].push(handler)
+    }
+
+    dispatchEvent(type, ...params) {
+        if(!(type in this.handlers)) {
+            return new Error('未注册该事件')
         }
-    } else {
-        alert('key不能为空')
+        this.handlers[type].forEach(handler => {
+            handler(...params)
+        });
+    }
+
+    removeEventListener(type, handler) {
+        if(!(type in this.handlers)) {
+            return new Error('未注册该事件')
+        }
+        if(!handler) {
+            delete this.handlers[type]
+        } else {
+            const idx = this.handlers[type].findIndex(ele => ele === handler)
+            if(idx === -1) {
+                return new Error('无该绑定事件')
+            }
+            this.handlers[type].splice(idx, 1)
+            if (this.handlers[type].length === 0) {
+                delete this.handlers[type]
+            }
+        }
     }
 }
