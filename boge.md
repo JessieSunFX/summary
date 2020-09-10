@@ -43,13 +43,13 @@
 - 二分法查找 1
 - 发布订阅模式 11
 - 单例 1
-- HTTP三次握手四次挥手
-- Websocket和HTTP区别
-- HTTP在哪一层
-- TCP在哪一层
+- HTTP三次握手四次挥手 22
+- Websocket和HTTP区别 2
+- HTTP在哪一层 2
+- TCP在哪一层 2
 - Require.js原理
-- 用js判断杨辉三角, 第n行的第m个是什么
-- 第四次挥手time_wait作用是什么, 为什么第二次挥手不需要time_wait
+- 用js判断杨辉三角, 第n行的第m个是什么 22
+- 第四次挥手time_wait作用是什么, 为什么第二次挥手不需要time_wait 2
 - setMonth
 ```
 var date = new Date("2020-08-31")
