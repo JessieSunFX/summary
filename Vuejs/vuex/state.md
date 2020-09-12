@@ -6,3 +6,15 @@
 - 存储在 Vuex 中的数据和 Vue 实例中的 data 遵循相同的规则，例如状态对象必须是纯粹 (plain) 的。
 
 ### 在Vue组件中获得Vuex状态
+- 由于 Vuex 的状态存储是响应式的，从 store 实例中读取状态最简单的方法就是在计算属性中返回某个状态：
+```
+// 创建一个 Counter 组件
+const Counter = {
+  template: `<div>{{ count }}</div>`,
+  computed: {
+    count () {
+      return store.state.count
+    }
+  }
+}
+```
