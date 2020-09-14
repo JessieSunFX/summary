@@ -28,3 +28,30 @@ const store = new Vuex.Store({
 // 学到哪，复习到哪，anki做到哪
 // 先小后大、先分后总
 // 知乎：如何长时间专注 信息转化率问题  信息单位削小
+
+
+Object.defineProperty(obj,key,{
+    enumerable:true,
+    configurable: true,
+    get: function reactiveGetter() {
+        const value= getter? getter.call(obj): value
+        if(Dep.target) {
+            dep.depend()
+            if(childOb) {
+                childOb.dep.depend()
+                if(Array.isArray(value)) {
+                    dependArray(value)
+                }
+            }
+        }
+    },
+    set: function reactiveSetter(newVal) {
+        const value = getter ? getter.call(obj) : val
+        if(newVal === value || (newVal !== newVal && value !== value)) {
+            return 
+        }
+        val = newVal
+        childOb = !shallow && observe(newVal)
+        dep.notify()
+    }
+})
