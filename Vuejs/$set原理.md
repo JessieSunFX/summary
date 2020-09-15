@@ -8,7 +8,7 @@
 - 对象：属性存在于对象中，直接替换val：target[key] = val
 - 属性不存在于对象中
     - target非响应式对象(target.\_\_ob\_\_)，直接给target的key赋值 target[key] = val
-    - target响应式对象，使用defineReactive将新增属性转换成getter/setter形式，然后，向target的依赖触发变化通知(ob.dep.notify())，并返回val
+    - target响应式对象，使用defineReactive将新增属性转换成getter/setter形式，然后向target的依赖发送变化通知(ob.dep.notify())，并返回val
 
 ```
 function set(target: Array<any> | Object, key: any, val: any): any {

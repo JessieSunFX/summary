@@ -44,21 +44,21 @@
         - 如果vnode的children和oldVnode的children都存在，且不完全相等，则调用 updateChildren 更新子节点
         - 如果只有vnode存在子节点，则调用 addVnodes 添加这些子节点
         - 如果只有oldVnode存在子节点，则调用 removeVnodes 移除这些子节点
-        - 如果oldVnode和vnode都不存在子节点，但是oldVnode为文本节点或注释节点，则把 oldVnode.elm 的文本内容置为空
+        - 如果oldVnode和vnode都不存在子节点，但是oldVnode为文本节点或注释节点，则把 oldVnode 的文本内容置为空
     - 如果vnode是文本节点或注释节点，并且vnode.text和oldVnode.text不相等，则更新oldVnode的文本内容为vnode.text
 
 3. updateChildren
     - updateChildren方法主要通过while循环去对比2棵树的子节点来更新dom,通过对比新的来改变旧的，以达到新旧统一的目的。
     1. 如果oldStartVnode不存在，则将oldStartVnode设置为下一个节点
     2. 如果oldEndVnode不存在，则将oldEndVnode设置为上一个节点
-    3. 如果oldStartVnode和newStartVnode是同一个节点（sameVnode），则调用patchVnode进行patch重复流程，同时将oldStartVnode和newStartVnode设置为下一个节点
-    4. 如果oldEndVnode和newEndVnode是同一个节点（sameVnode），则调用patchVnode进行patch重复流程，同时将oldEndVnode和newEndVnode设置为上一个节点
-    5. 如果oldStartVnode和newEndVnode是同一个节点（sameVnode），则调用patchVnode进行patch重复流程，将oldStartVnode.elm移动到oldEndVnode.elm的后面,同时将oldStartVnode设置为下一个节点，newEndVnode设置为上一个节点
-    6. 如果oldEndVnode和newStartVnode是同一个节点（sameVnode），则调用patchVnode进行patch重复流程，将oldEndVnode.elm移动到oldStartVnode.elm的前面,同时将oldEndVnode设置为上一个节点，newStartVnode设置为下一个节点
+    3. 如果oldStartVnode和newStartVnode是同一个节点（sameVnode），则调用patchVnode进行patch，同时将oldStartVnode和newStartVnode设置为下一个节点
+    4. 如果oldEndVnode和newEndVnode是同一个节点（sameVnode），则调用patchVnode进行patch，同时将oldEndVnode和newEndVnode设置为上一个节点
+    5. 如果oldStartVnode和newEndVnode是同一个节点（sameVnode），则调用patchVnode进行patch，将oldStartVnode移动到oldEndVnode的后面,同时将oldStartVnode设置为下一个节点，newEndVnode设置为上一个节点
+    6. 如果oldEndVnode和newStartVnode是同一个节点（sameVnode），则调用patchVnode进行patch，将oldEndVnode移动到oldStartVnode的前面,同时将oldEndVnode设置为上一个节点，newStartVnode设置为下一个节点
     7. 否则，尝试在oldChildren中查找与newStartVnode具有相同key的节点
         - 如果没有找到，则说明newStartVnode是一个新节点，则调用createElem创建一个新节点，同时将newStartVnode设置为下一个节点
         - 如果找到了具有相同key的节点 vnodeToMove
-            - 如果找到的节点与newStartVnode是同一个节点（sameVnode），则调用patchVnode进行patch重复流程，同时把vnodeToMove.elm移动到oldStartVnode.elm之前，并把newStartVnode设置为下一个节点
+            - 如果找到的节点与newStartVnode是同一个节点（sameVnode），则调用patchVnode进行patch，同时把vnodeToMove移动到oldStartVnode之前，并把newStartVnode设置为下一个节点
             - 否则，调用createElm创建一个新的节点，同时把newStartVnode设置为下一个节点
     - 上述过程中，循环条件为oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx，即oldChildren和newChildren节点在遍历过程中如果任意一个的开始索引和结束索引重合，则表明遍历结束。
 
@@ -66,7 +66,7 @@
     1. 如果oldStartIdx大于oldEndIdx，说明newChildren可能还未遍历完，则需要调用addVnodes添加newStartIdx到newEndIdx之间的节点
     2. 如果newStartIdx大于newEndIdx，说明oldChildren可能还未遍历完，则需要调用removeVnodes移除oldStartIdx到oldEndIdx之间的节点
 
-    - 整个过程是逐步找到更新前后vdom的差异，然后将差异反应到DOM树上（也就是patch），Vue的patch是即时的，并不是打包所有修改最后一起操作DOM（React则是将更新放入队列后集中处理），朋友们会问这样做性能很差吧？实际上现代浏览器对这样的DOM操作做了优化，并无差别。
+    - 整个过程是逐步找到更新前后vdom的差异，然后将差异反应到DOM树上（也就是patch），Vue的patch是即时的，并不是打包所有修改最后一起操作DOM（React则是将更新放入队列后集中处理）。现代浏览器对这样的DOM操作做了优化，性能并无差别。
 
 
 ```
