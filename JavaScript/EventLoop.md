@@ -26,6 +26,8 @@
 - setInterval
 - setImmediate
 - requestAnimationFram
+- MessageChannel
+- postMessage
 - 整个script代码块
 
 ### 微任务

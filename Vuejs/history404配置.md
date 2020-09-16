@@ -1,4 +1,4 @@
-## Vue路由history模式 404
+## Vue路由history模式 404问题
 
 ### nginx
 1. try_files
