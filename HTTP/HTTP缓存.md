@@ -43,25 +43,25 @@ public; # 所有内容都将被缓存(客户端和代理服务器都可缓存)
 
 1. nginx 设置 Cache-Control,Expires
 
-```bash
-location ~ .*\.(css|js|swf|php|htm|html )$ {
-  add_header Cache-Control no-store;
-}
+    ```bash
+    location ~ .*\.(css|js|swf|php|htm|html )$ {
+      add_header Cache-Control no-store;
+    }
 
-location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ {
-  #过期时间为30天，
-  #图片文件不怎么更新，过期可以设大一点，
-  #如果频繁更新，则可以设置得小一点。
-  expires 30d;
-}
-```
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ {
+      #过期时间为30天，
+      #图片文件不怎么更新，过期可以设大一点，
+      #如果频繁更新，则可以设置得小一点。
+      expires 30d;
+    }
+    ```
 
 2. meta 标签设置 Cache-Control,Expires
 
-```xml
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Expires" content="0" />
-```
+    ```xml
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Expires" content="0" />
+    ```
 
 ---
 
@@ -98,7 +98,7 @@ location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ {
    If-None-Match (Etag) —— 请求服务器
    If-Modified-Since (Last-Modified) —— 请求服务器
 
-## 分布式响应头使用协议缓存缓存需注意
+## 分布式响应头使用协商缓存需注意
 
 - 分布式系统里多台机器间文件的 Last-Modified 必须保持一致，以免负载均衡到不同机器导致比对失败；
 - 分布式系统尽量关闭掉 ETag(每台机器生成的 ETag 都会不一样）；
