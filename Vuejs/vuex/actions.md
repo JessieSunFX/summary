@@ -83,7 +83,7 @@ actions: {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 commit('someMutation')
-                resolve
+                resolve()
             }, 1000)
         })
     }
