@@ -58,21 +58,12 @@ Object.defineProperty(obj,key,{
 
 
 /**
- * float clear vertical-align 将失效
- * 容器属性：
- * flex-direction: row row-reverse column column-reverse
- * flex-wrap: no-wrap wrap wrap-reverse
- * flex-flow
- * justify-content: flex-start flex-end center space-between space-around
- * align-items: flex-start flex-end center baseline stretch默认
- * align-content： flex-start flex-end center space-between space-around stretch默认
+ * 触发BFC
+ * html根元素
+ * 浮动元素 float:left/right
+ * display:inline-block/table-cell/table-caption
+ * overflow:hidden/scroll/auto
+ * 绝对定位、固定定位position:absolute/fixed
  * 
- * 项目属性
- * order 0默认
- * flex-grow 0默认
- * flex-shrink 1默认
- * flex-basis auto默认
- * flex auto(1,1,auto) none(0,0,auto)
- * align-self:auto默认 flex-start flex-end center baseline stretch
  */
 
