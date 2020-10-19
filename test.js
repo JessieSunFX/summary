@@ -58,12 +58,9 @@ Object.defineProperty(obj,key,{
 
 
 /**
- * 触发BFC
- * html根元素
- * 浮动元素 float:left/right
- * display:inline-block/table-cell/table-caption
- * overflow:hidden/scroll/auto
- * 绝对定位、固定定位position:absolute/fixed
- * 
+ * vue-router声明式跳转的方式
+ * 1. <router-link to="detail"></router-link>
+ * 2. <router-link :to="{name:'detail', params:{personId: 111}}"></router-link>
+ * 3. <router-link :to="{path:'/detail', query:{personId: 111}}"></router-link>
  */
 

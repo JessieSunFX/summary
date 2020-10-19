@@ -36,10 +36,10 @@
     - 目标页面使用this.$route.query.personId来获取传递的参数，该方式会把传递的参数放在url上，如：localhost:8080/#/detail/?personId=33。
 
 ### 声明式跳转三种方式（优缺点与编程式相同）
-1. \<router-link to="detail">跳转到详情页</router-link>
+1. \<router-link to="detail">跳转到详情页\</router-link>
 
-2. \<router-link :to="{name:'detail',params:{personId:33}}">跳转到详情页</router-link>
+2. \<router-link :to="{name:'detail',params:{personId:33}}">跳转到详情页\</router-link>
 
-3. \<router-link :to="{path:'/detail',query:{personId:33}}">跳转到详情页</router-link>
+3. \<router-link :to="{path:'/detail',query:{personId:33}}">跳转到详情页\</router-link>
 
 
