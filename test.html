@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap-select/1.13.10/css/bootstrap-select.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap-select/1.13.10/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-select/1.13.10/js/i18n/defaults-zh_CN.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+            <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="control-label">Recipient:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="" style="display:block;">Message:</label>
+                  
+                    <select class="selectpicker" multiple data-live-search="true" data-selected-text-format="count > 3" calss="form-control">
+                        <option value="1">111</option>
+                        <option value="2">222</option>
+                    </select>
+                  
+                  
+                </div>
+              </form>
+        </div>
+    </div>
+<script>
+    console.log($( ".selectpicker" ).val())
+     $( ".selectpicker" ).selectpicker({
+        noneSelectedText : '请选择999', //默认显示内容
+    });
+    // 回显数据
+    $( ".selectpicker" ).selectpicker('val', ["1","2"]);
+
+    $( ".selectpicker" ).change(function() {
+        console.log($( ".selectpicker" ).val())
+    })
+</script>
+</body>
+</html>
