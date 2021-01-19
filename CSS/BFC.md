@@ -56,11 +56,11 @@
 ### float
 - left
 - right
-- none
+- none 默认
 - inherit
 
 ### overflow
-- visible
+- visible 默认
 - hidden
 - scroll
 - auto
@@ -70,5 +70,5 @@
 - absolute
 - fixed
 - relative
-- static
+- static 默认
 - inherit
