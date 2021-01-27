@@ -23,3 +23,23 @@ var six = 0.6;
 - bignumber.js
 - https://zhuanlan.zhihu.com/p/100380291
 - https://github.com/MikeMcl/bignumber.js
+
+
+## 损失精度的 IEEE 754(没搞懂)
+
+```
+var a = 111111111111111110000;
+var b = 1111;
+console.log(a + b);
+
+// A. 111111111111111111111
+// B. 111111111111111110000
+// C. NaN
+// D. Infinity
+```
+
+- 答案是B。这是IEEE 754规范的黑锅，不是JavaScript的问题。表示这么大的数占用过多位数，会丢失精度，学过计算机组成原理的应该知道是怎么回事。
+
+- 参考资料：
+- Wiki：Double-precision floating-point format
+- https://en.wikipedia.org/wiki/Double-precision_floating-point_format

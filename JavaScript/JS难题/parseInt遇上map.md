@@ -22,3 +22,40 @@
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 - MDN: parseInt
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/parseInt
+
+## parseInt小贼
+```
+parseInt(3, 8);
+parseInt(3, 2);
+parseInt(3, 0);
+
+// A. 3, 3, 3
+// B. 3, 3, NaN
+// C. 3, NaN, NaN
+// D. other
+```
+
+- 答案是D。实际结果是 3, NaN, 3。
+
+## 淘气的map
+
+```
+var ary = Array(3);
+ary[0] = 2;
+ary.map(function(elem) {
+  return "1";
+});
+
+// A. [2, 1, 1]
+// B. ["1", "1", "1"]
+// C. [2, "1", "1"]
+// D. other
+```
+
+- 答案是D。实际上结果是 ["1", empty x 2]，因为规范写得很清楚：
+
+- map 方法会给原数组中的每个元素都按顺序调用一次 callback 函数。callback 每次执行后的返回值组合起来形成一个新数组。callback 函数只会在有值的索引上被调用；那些从来没被赋过值或者使用 delete 删除的索引则不会被调用。
+- 被赋值为 undefined 的索引 callback 也会被调用；
+
+- 参考资料：
+- MDN: Array.prototype.map()
