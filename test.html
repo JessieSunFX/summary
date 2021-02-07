@@ -12,8 +12,26 @@
     <link href="https://cdn.bootcss.com/bootstrap-select/1.13.10/css/bootstrap-select.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/bootstrap-select/1.13.10/js/bootstrap-select.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap-select/1.13.10/js/i18n/defaults-zh_CN.min.js"></script>
+    <style>
+        .father {
+            width: 300px; height: 150px;
+            background-color: #f0f3f9;
+            position:relative;
+        }
+        .son { 
+            margin: auto;
+            position: absolute; 
+            width: 200px; height: 100px;
+            background-color: #cd0000;
+            top: 0; right: 0; bottom: 0; left: 0;
+        }
+    </style>
 </head>
 <body>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
     <div class="row">
         <div class="col-sm-12">
             <form>
@@ -34,6 +52,8 @@
               </form>
         </div>
     </div>
+
+
 <script>
     console.log($( ".selectpicker" ).val())
      $( ".selectpicker" ).selectpicker({
